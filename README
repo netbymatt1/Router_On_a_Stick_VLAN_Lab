@@ -1,0 +1,39 @@
+# Router-On-a-Stick VLAN Lab
+
+This lab demonstrates how to enable inter-VLAN communication using a single physical router interface with subinterfaces (Router-on-a-Stick method).
+
+---
+
+### Topology Summary
+- **VLANs:**  
+  - VLAN 10 → 192.168.10.0/24  
+  - VLAN 20 → 192.168.20.0/24
+
+- **Router:**  
+  - `Gi0/0.10` → 192.168.10.1  
+  - `Gi0/0.20` → 192.168.20.1  
+  - Encapsulation: dot1Q
+
+- **Switch (SW1):**  
+  - Trunk port to router: `Fa0/3`  
+  - Access ports:  
+    - PC0 on `Fa0/2` (VLAN 10)  
+    - PC1 on `Fa0/1` (VLAN 20)
+
+---
+
+### Objectives
+- Configure inter-VLAN routing via subinterfaces on a single router port.
+- Test connectivity between devices in different VLANs.
+
+---
+
+### Verification
+From PC0:
+ping 192.168.20.10
+From PC1:
+ping 192.168.10.10
+Expected Result: Successful ping in both directions.
+
+Status
+✅ Lab tested and working successfully.
